@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CyberLearn – منصة تعلم الأمن السيبراني</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="top">
+  <a href="#dashboard" class="logo">⟨/⟩ Cyber<span>Learn</span></a>
+  <div class="links">
+    <a href="#dashboard" data-v="dashboard">الرئيسية</a>
+    <a href="#lab" data-v="lab">المعمل</a>
+    <a href="#paths" data-v="paths">المسارات</a>
+    <a href="#community" data-v="community">المتصدرون</a>
+  </div>
+  <div class="search"><input id="gs" placeholder="ابحث عن دورات، معامل، أو ثغرات..." autocomplete="off"><div id="sres"></div></div>
+  <div class="sp"></div>
+  <span class="pill xp mono">LVL 24 · 12,450 XP</span>
+  <span class="pill rank">🛡 Elite Defender</span>
+  <div class="dd">
+    <button class="ib" data-menu="nm">🔔<span class="dot"></span></button>
+    <div class="menu" id="nm">
+      <div>🚨 تنبيه ثغرة جديدة في OpenSSH<small>منذ 5 دقائق</small></div>
+      <div>🏆 حصلت على شارة "Web Defender"<small>منذ ساعة</small></div>
+      <div>⏰ التحدي اليومي ينتهي خلال 6 ساعات<small>منذ ساعتين</small></div>
+    </div>
+  </div>
+  <div class="dd">
+    <button class="avatar" data-menu="um">AK</button>
+    <div class="menu" id="um">
+      <div><b>Ahmed_K</b><small>ahmed@cyberlearn.io</small></div>
+      <a href="#dashboard">👤 الملف الشخصي</a><a href="#dashboard">⚙ الإعدادات</a><a href="#dashboard">🚪 تسجيل الخروج</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section class="view" id="dashboard">
+  <div class="grid">
+    <div>
+      <div class="hero">
+        <div><span class="tag">التحدي اليومي · Daily CTF</span><h1>Secure Login Review</h1><p>راجع نموذج تسجيل الدخول في بيئة تدريب معزولة واستخرج الراية · متوسط · +350 XP</p></div>
+        <a href="#lab" class="btn btn-p">▶ Quick Start</a>
+      </div>
+      <h2>قيد التقدم</h2>
+      <div class="row">
+        <div class="card course"><span class="st on">Active</span><h3>Web Application Security</h3><div class="bar"><i style="width:68%"></i></div><div class="mut">68% · 17 من 25 درس</div><br><a href="#paths" class="btn btn-s btn-sm">استكمال</a></div>
+        <div class="card course"><span class="st on">Active</span><h3>Network Traffic Analysis</h3><div class="bar"><i style="width:42%"></i></div><div class="mut">42% · 8 من 19 درس</div><br><a href="#paths" class="btn btn-s btn-sm">استكمال</a></div>
+        <div class="card course"><span class="st off">Paused</span><h3>Applied Cryptography</h3><div class="bar"><i style="width:15%"></i></div><div class="mut">15% · 3 من 20 درس</div><br><a href="#paths" class="btn btn-s btn-sm">استكمال</a></div>
+      </div>
+      <div class="card"><h2>مصفوفة المهارات</h2><div id="radar" style="display:flex;justify-content:center"></div></div>
+    </div>
+    <aside class="card feed">
+      <h2>🔴 Live Threat Feed</h2>
+      <div class="item"><span class="sev crit">CRITICAL</span><b class="mono">CVE-2024-6387</b><br>ثغرة في OpenSSH تستدعي التحديث الفوري.<div class="mut">Zero-Day Alert · قبل 5 دقائق</div></div>
+      <div class="item"><span class="sev crit">CRITICAL</span><b class="mono">CVE-2024-3094</b><br>باب خلفي في مكتبة XZ Utils.<div class="mut">قبل ساعة</div></div>
+      <div class="item"><span class="sev high">HIGH</span><b class="mono">CVE-2023-44487</b><br>HTTP/2 Rapid Reset.<div class="mut">قبل 3 ساعات</div></div>
+      <div class="item"><span class="sev med">MEDIUM</span><b class="mono">CVE-2024-21626</b><br>ثغرة هروب من الحاويات في runc.<div class="mut">أمس</div></div>
+      <div class="item"><span class="sev high">NEWS</span>حملة Ransomware جديدة تستهدف قطاع الصحة.<div class="mut">أمس</div></div>
+    </aside>
+  </div>
+</section>
+
+<section class="view" id="lab">
+  <div class="lab">
+    <div class="card">
+      <span class="tag">LAB-042 · Web</span>
+      <h2 style="margin-top:8px">Secure Login Review</h2>
+      <p class="mut" style="margin-bottom:12px"><b>الهدف:</b> فهم سبب ضعف التحقق من المدخلات في نموذج الدخول، ثم إيجاد الراية داخل بيئة التدريب المعزولة.</p>
+      <ol class="steps" id="steps">
+        <li>تشغيل البيئة والتأكد من الاتصال بالهدف.</li>
+        <li>تنفيذ مسح بسيط للخدمات المفتوحة.</li>
+        <li>افتح تبويب المتصفح وراجع صفحة الدخول.</li>
+        <li>اقرأ ملف الراية من الطرفية وأدخلها أدناه.</li>
+      </ol>
+      <div class="code"><div class="ch"><span>login.py (vulnerable)</span><span><button data-copy>نسخ</button><button data-zoom>تكبير</button></span></div><pre>query = "SELECT * FROM users WHERE name='" + user + "'"
+# TODO: use parameterized queries
+cur.execute(query)</pre></div>
+      <div class="flag"><input id="flag" class="mono" placeholder="CTF{...}"><button class="btn btn-p" id="fsub">تحقق</button></div>
+      <div id="fmsg"></div>
+      <button class="btn btn-s btn-sm" id="hint">💡 طلب تلميح</button>
+      <button class="btn btn-s btn-sm" id="sol">👁 إظهار الحل</button>
+      <div id="hbox" class="mut" style="margin-top:12px;line-height:1.8"></div>
+    </div>
+    <div class="card vcol">
+      <div class="vbar">
+        <button class="btn btn-p btn-sm" id="pw">▶ Start Instance</button>
+        <span class="st off" id="ist">Offline</span>
+        <span class="mut">⏱ <b class="mono" id="timer">00:00:00</b></span>
+        <span class="mut">Target IP: <span class="ip mono" id="tip">—</span></span>
+      </div>
+      <div class="tabs"><button class="active" data-t="t1">⌨ Terminal</button><button data-t="t2">🌐 Browser</button><button data-t="t3">🕸 Network Topology</button></div>
+      <div class="pane active" id="t1"><div class="term mono" id="term"></div></div>
+      <div class="pane" id="t2"><div class="browser"><div class="burl mono" id="burl">http://— (البيئة متوقفة)</div><div class="bbody"><h3>Training Portal</h3><br>Username<input value="student"> Password<input type="password" value="••••••"><button id="blogin">Login</button><p id="bmsg" style="margin-top:14px;color:#555">صفحة تدريبية محاكاة.</p></div></div></div>
+      <div class="pane" id="t3"><div class="topo"><svg viewBox="0 0 600 300" id="topo"></svg></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="view" id="paths">
+  <div class="phead card">
+    <h1>🛡 SOC Analyst Path</h1>
+    <span class="diff">Intermediate</span><span class="diff" style="color:var(--cy);background:rgba(0,212,255,.1)">🎓 شهادة: CyberLearn Certified SOC Analyst</span>
+    <p class="mut" style="margin-top:8px;line-height:1.8">مسار مهني متكامل لتأهيلك للعمل كمحلل في مركز عمليات الأمن: مراقبة الأحداث، تحليل السجلات، الاستجابة للحوادث وإعداد التقارير.</p>
+  </div>
+  <div class="tl-wrap" id="tree"></div>
+</section>
+
+<section class="view" id="community">
+  <div class="lb">
+    <div class="card">
+      <h2>🏆 Leaderboard</h2>
+      <div class="fl" id="lbf"><button data-p="w" class="active">أسبوعي</button><button data-p="m">شهري</button><button data-p="a">كل الأوقات</button></div>
+      <table><thead><tr><th>#</th><th>المستخدم</th><th>XP</th><th>الشارات</th><th>إكمال المعامل</th></tr></thead><tbody id="lbt"></tbody></table>
+    </div>
+    <div class="card">
+      <h2>💬 المناقشات</h2>
+      <div class="post"><b>Sara_M</b> · LAB-042<br>هل أحد جرّب حل الخطوة 3؟ ما الفكرة العامة؟<span class="spoilh">⚠ حل مخفي – اضغط للإظهار</span><span class="spoil">الفكرة: المدخلات لا تُعقَّم قبل وصولها لاستعلام قاعدة البيانات؛ الحل الصحيح هو الاستعلامات المهيّأة.</span></div>
+      <div class="post"><b>Omar_77</b> · Crypto-12<br>ما الفرق بين التجزئة والتشفير؟<span class="spoilh">⚠ حل مخفي</span><span class="spoil">التجزئة أحادية الاتجاه، والتشفير يمكن عكسه بالمفتاح.</span></div>
+      <div class="post"><b>Nour_H</b> · PCAP-05<br>أين أجد الراية داخل ملف الالتقاط؟<span class="spoilh">⚠ حل مخفي</span><span class="spoil">ابدأ بتصفية بروتوكول HTTP ثم تتبّع التدفق.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="lib card">
+  <h2>🧩 UI Component Library</h2>
+  <div class="libr"><span class="st on">Connected</span><span class="st off">Offline</span><span class="st atk">Active Attack</span></div>
+  <div class="libr"><button class="btn btn-p">Primary</button><button class="btn btn-s">Secondary</button><button class="btn btn-d">Danger</button></div>
+  <div class="code"><div class="ch"><span>config.yaml</span><span><button data-copy>نسخ</button><button data-zoom>تكبير</button></span></div><pre>ssh:
+  PermitRootLogin: no
+  PasswordAuthentication: no</pre></div>
+</section>
+</main>
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
